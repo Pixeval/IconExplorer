@@ -11,19 +11,17 @@ namespace IconExplorer;
 
 public sealed partial class SystemIcons
 {
-    private bool _useMetric = true;
-    private bool _isFilled;
-
     public bool IsFilled
     {
-        get => _isFilled;
+        get;
         set
         {
-            if (value == _isFilled)
+            if (value == field)
                 return;
-            _isFilled = value;
+            field = value;
             SetFilled(value);
             return;
+
             static async void SetFilled(bool value)
             {
                 await Task.Yield();
@@ -35,14 +33,15 @@ public sealed partial class SystemIcons
 
     public bool UseMetric
     {
-        get => _useMetric;
+        get;
         set
         {
-            if (value == _useMetric)
+            if (value == field)
                 return;
-            _useMetric = value;
+            field = value;
             SetMetric(value);
             return;
+
             static async void SetMetric(bool value)
             {
                 await Task.Yield();
@@ -50,7 +49,7 @@ public sealed partial class SystemIcons
                     x.UseMetric = value;
             }
         }
-    }
+    } = true;
 
     public SystemIcons() => InitializeComponent();
 
