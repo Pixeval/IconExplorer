@@ -34,11 +34,9 @@ public sealed partial class MainWindow
             return new((int)(rect.X * scaleFactor), (int)(rect.Y * scaleFactor), (int)(rect.Width * scaleFactor),
                 (int)(rect.Height * scaleFactor));
         }
-        else
-        {
-            var pos = uiElement.TransformToVisual(null).TransformPoint(new(0, 0));
-            rect = new RectInt32((int)pos.X, (int)pos.Y, (int)uiElement.ActualSize.X, (int)uiElement.ActualSize.Y);
-            return GetScaledRect(uiElement, rect);
-        }
+
+        var pos = uiElement.TransformToVisual(null).TransformPoint(new(0, 0));
+        rect = new RectInt32((int)pos.X, (int)pos.Y, (int)uiElement.ActualSize.X, (int)uiElement.ActualSize.Y);
+        return GetScaledRect(uiElement, rect);
     }
 }
