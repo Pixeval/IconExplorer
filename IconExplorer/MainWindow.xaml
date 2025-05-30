@@ -18,11 +18,18 @@
             <TabViewItem
                 Header="Fluent UI System Icons"
                 IconSource="{fluent:SymbolIconSource IconVariant=Regular,
-                                                     UseSegoeMetrics=True,
                                                      Symbol=Icons}"
                 IsClosable="False"
                 Loaded="MainWindow_OnSizeChanged">
                 <local:SystemIcons />
+            </TabViewItem>
+            <TabViewItem
+                Header="Fluent UI System Icons"
+                IconSource="{fluent:FluentIconSource IconVariant=Regular,
+                                                     Icon=Icons}"
+                IsClosable="False"
+                Loaded="MainWindow_OnSizeChanged">
+                <local:FluentIcons />
             </TabViewItem>
         </TabView.TabItems>
     </TabView>

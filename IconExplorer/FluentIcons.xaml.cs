@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using FluentIcons.Common;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
-using Symbol = FluentIcons.Common.Symbol;
 
 namespace IconExplorer;
 
-public sealed partial class SystemIcons
+public sealed partial class FluentIcons
 {
     public IconVariant IconVariant
     {
@@ -32,14 +31,14 @@ public sealed partial class SystemIcons
         }
     }
 
-    public SystemIcons() => InitializeComponent();
+    public FluentIcons() => InitializeComponent();
 
-    private static SymbolModel[] ItemSource { get; } = Enum.GetValues<Symbol>().Select(t => new SymbolModel(t)).ToArray();
+    private static SymbolModel2[] ItemSource { get; } = Enum.GetValues<Icon>().Select(t => new SymbolModel2(t)).ToArray();
 
     private void UIElement_OnTapped2(object sender, TappedRoutedEventArgs e) => SetItemsSource(ItemSource);
 
-    private FrozenDictionary<string, SymbolModel> Table { get; } =
-        ItemSource.ToDictionary(x => x.Symbol.ToString().ToLower() + x.Symbol.ToString().Count(num => num is >= 'A' and <= 'Z'))
+    private FrozenDictionary<string, SymbolModel2> Table { get; } =
+        ItemSource.ToDictionary(x => x.Icon.ToString().ToLower() + x.Icon.ToString().Count(num => num is >= 'A' and <= 'Z'))
             .ToFrozenDictionary();
 
     private async void TextBox_OnTextChanged(TextBox textBox, TextBoxTextChangingEventArgs args)
@@ -58,7 +57,7 @@ public sealed partial class SystemIcons
             return;
         }
 
-        var view = new List<SymbolModel>();
+        var view = new List<SymbolModel2>();
         await Task.Run(() =>
         {
             foreach (var (key, value) in Table)
@@ -68,7 +67,7 @@ public sealed partial class SystemIcons
         SetItemsSource(view);
     }
 
-    private void SetItemsSource(IReadOnlyList<SymbolModel> source)
+    private void SetItemsSource(IReadOnlyList<SymbolModel2> source)
     {
         ItemsView.ItemsSource = source;
     }

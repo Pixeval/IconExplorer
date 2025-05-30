@@ -1,14 +1,14 @@
 <UserControl
-    x:Class="IconExplorer.SystemIcons"
+    x:Class="IconExplorer.FluentIcons"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:common="using:FluentIcons.Common"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:fluent="using:FluentIcons.WinUI"
     xmlns:local="using:IconExplorer"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:winUi="using:CommunityToolkit.WinUI"
+    xmlns:winUi="using:FluentIcons.WinUI"
+    xmlns:winUi1="using:CommunityToolkit.WinUI"
+    xmlns:common="using:FluentIcons.Common"
     mc:Ignorable="d">
     <Grid RowDefinitions="Auto,*" RowSpacing="5">
         <Grid
@@ -22,7 +22,7 @@
                 Tapped="UIElement_OnTapped2" />
             <ComboBox
                 Grid.Column="2"
-                ItemsSource="{winUi:EnumValues Type=common:IconVariant}"
+                ItemsSource="{winUi1:EnumValues Type=common:IconVariant}"
                 SelectedItem="{x:Bind IconVariant, Mode=TwoWay}" />
         </Grid>
         <ScrollView Grid.Row="1">
@@ -31,11 +31,11 @@
                     <UniformGridLayout MinItemHeight="30" MinItemWidth="30" />
                 </ItemsRepeater.Layout>
                 <ItemsRepeater.ItemTemplate>
-                    <DataTemplate x:DataType="local:SymbolModel">
-                        <fluent:SymbolIcon
+                    <DataTemplate x:DataType="local:SymbolModel2">
+                        <winUi:FluentIcon
+                            Icon="{x:Bind Icon}"
                             IconVariant="{x:Bind IconVariant, Mode=OneWay}"
-                            Symbol="{x:Bind Symbol}"
-                            ToolTipService.ToolTip="{x:Bind Symbol}" />
+                            ToolTipService.ToolTip="{x:Bind Icon}" />
                     </DataTemplate>
                 </ItemsRepeater.ItemTemplate>
             </ItemsRepeater>
