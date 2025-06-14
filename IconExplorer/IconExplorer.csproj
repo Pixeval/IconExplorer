@@ -29,10 +29,10 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
         <PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.2.250402" />
         <PackageReference Include="CommunityToolkit.WinUI.Extensions" Version="8.2.250402" />
-        <PackageReference Include="FluentIcons.WinUI" Version="1.1.301" />
+        <PackageReference Include="FluentIcons.WinUI" Version="1.1.302" />
         <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
-        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250513003" />
-        <PackageReference Include="WinUI3Utilities" Version="1.1.7.16" />
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
+        <PackageReference Include="WinUI3Utilities" Version="1.1.7.18" />
         <Manifest Include="$(ApplicationManifest)" />
     </ItemGroup>
 
